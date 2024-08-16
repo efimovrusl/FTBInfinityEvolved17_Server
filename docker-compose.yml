@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  ftb-infinity:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "25565:25565"
+    volumes:
+      - ./data:/data
+    environment:
+      - MOTD=FTB Infinity Evolved 1.7 v3.1.0 Server Powered by Docker
+      - LEVEL=world
+      - JVM_OPTS=-Xms4096m -Xmx4096m
+    restart: unless-stopped
+
+volumes:
+  data:
